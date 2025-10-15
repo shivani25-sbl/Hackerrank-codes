@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main(){
+    int i , n , multiplication =1;
+    printf("enter the value of n ");
+    scanf("%d" , &n);
+    for (i=1; i<=n ; i++){
+        multiplication*=i;
+    }
+ printf("multiplication = %d", multiplication);
+    return 0;
+}

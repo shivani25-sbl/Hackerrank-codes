@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+
+    int age ;
+    char name;
+    float height ;
+    double shivani ;
+    scanf("%c%d%f%lf ",&name,&age,&height,&shivani);
+    printf("%c %d %.2f %.6lf",name,age, height,shivani);
+    return 0;
+}

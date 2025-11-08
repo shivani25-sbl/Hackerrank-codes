@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main(){
+    int r,c;
+    scanf("%d%d",&r,&c);
+    int m1[r][c], m2[r][c],result[r][c];
+    for(int i=0; i<r; i++){ //matrix 1
+        for(int j=0; j<c; j++){
+            scanf("%d",&m1[i][j]);
+        }
+    }
+//matrix 2
+    for(int i=0; i<r ;i++){
+        for(int j=0; j<c; j++){
+            scanf("%d", &m2[i][j]);
+        }
+    }
+    //logic to add two matrix
+    for(int i=0; i<r ; i++){
+        for(int j=0; j<c; j++){
+            result[i][j] = m1[i][j] + m2[i][j];
+        }
+    }
+    //print result matrix
+    for(int i=0; i<r; i++){
+        for(int j=0; j<c; j++){
+            printf("%d ",result[i][j]);
+        }
+        printf("\n");
+    }
+    
+    
+    
+    return 0;
+}

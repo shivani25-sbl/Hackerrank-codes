@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <ctype.h> 
+
+int main() {
+    char S[1001];  
+    int alphabets = 0, digits = 0, special_chars = 0;
+
+    
+    fgets(S, sizeof(S), stdin);
+
+    
+    for (int i = 0; S[i] != '\0'; i++) {
+        if (isalpha(S[i])) {
+            alphabets++;
+        } else if (isdigit(S[i])) {
+            digits++;
+        } else if (S[i] != '\n') {  
+            special_chars++;
+        }
+    }
+
+   
+    printf("%d %d %d\n", alphabets, digits, special_chars);
+
+    return 0;
+}

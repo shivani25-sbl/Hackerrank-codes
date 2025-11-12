@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char S[1001];
+    int seen[256] = {0}; 
+    char result[1001];
+    int j = 0;
+
+    
+    fgets(S, sizeof(S), stdin);
+
+    
+    size_t len = strlen(S);
+    if (len > 0 && S[len - 1] == '\n') {
+        S[len - 1] = '\0';
+        len--;
+    }
+
+    
+    for (int i = 0; S[i] != '\0'; i++) {
+        unsigned char ch = S[i];
+        if (!seen[ch]) {
+            seen[ch] = 1;
+            result[j++] = ch;
+        }
+    }
+
+    result[j] = '\0';  
+
+   
+    printf("%s\n", result);
+
+    return 0;
+}

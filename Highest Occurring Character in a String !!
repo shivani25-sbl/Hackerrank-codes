@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char S[1001];
+    int freq[256] = {0};  
+    int max_freq = 0;
+    char max_char;
+
+   
+    fgets(S, sizeof(S), stdin);
+
+    
+    size_t len = strlen(S);
+    if (len > 0 && S[len - 1] == '\n') {
+        S[len - 1] = '\0';
+        len--;
+    }
+
+    
+    for (int i = 0; S[i] != '\0'; i++) {
+        freq[(unsigned char)S[i]]++;
+    }
+
+ 
+    for (int i = 0; S[i] != '\0'; i++) {
+        if (freq[(unsigned char)S[i]] > max_freq) {
+            max_freq = freq[(unsigned char)S[i]];
+            max_char = S[i];
+        }
+    }
+
+    
+    printf("%c occurs %d times\n", max_char, max_freq);
+
+    return 0;
+}

@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int main() {
+    int riya, aman;
+
+    // Read two integers from input
+    scanf("%d %d", &riya, &aman);
+
+    // Swap the values using a temporary variable
+    int temp = riya;
+    riya = aman;
+    aman = temp;
+
+    // Print the swapped values
+    printf("%d %d\n", riya, aman);
+
+    return 0;
+}

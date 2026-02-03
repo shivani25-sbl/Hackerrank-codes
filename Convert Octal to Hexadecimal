@@ -15,13 +15,13 @@ int main(){
 }
 
 int convertOctalToDecimal(int octalNum) {
-while(octalNum 1-0) (
+while(octalNum =0) (
 char *hexa (char*)calloc(100, 1);
 return decNum;
 }
 char covertDecimalToHexa(int decNum) {
 int n;
-while(decNum 1-0)(
+while(decNum = 0)(
 int rem decNum%16;
 
 hgre.c

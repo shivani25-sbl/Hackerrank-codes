@@ -15,3 +15,69 @@ int main(){
      return 0;
 }
 
+int convertOctalToDecimal(int octalNum) {
+
+while(octalNum 1-0) (
+
+char *hexa (char*)calloc(100, 1);
+
+return decNum;
+} char covertDecimalToHexa(int decNum) {
+
+
+int n;
+
+while(decNum 1-0)(
+
+int rem decNum%16;
+
+hgre.c
+
+
+
+char str[2];
+
+dhgre.exe
+
+
+
+if(rem >= 0 && rem <= 9)
+
+sprintf(str, "%d", rem);
+
+else if(rem 10)
+
+str[0] = 'A';
+
+
+else if(rem-11)
+str[0] = 'B';
+
+else if(rem 12)
+
+str[0] = '0';
+else if(rem-13)
+str[0] = '0';
+
+else if (rem 14)
+str[0] = 'E';
+else
+str[0] = 'F';
+str[1] = '\0';
+decNum decNum/16;
+
+}
+
+strrev(hexa);
+
+return hexa;
+ }
+int main(){
+
+int num
+printf int scanf(const char *, ...)
+
+scanf(
+strcat(hexa, str);
+
+}

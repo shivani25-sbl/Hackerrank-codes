@@ -3,7 +3,7 @@ int main(){
     while(1){
         printf("1.Insert in beginning\n");
         printf("2.Insert at end\n");
-        printf("3. insert at any position\n");
+        printf("3.Insert at any position\n");
         printf("4.delete from beginning\n");
         printf("5.delete from ennd \n");
         printf("6.delete from beginning\n");

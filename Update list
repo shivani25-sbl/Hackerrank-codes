@@ -75,14 +75,6 @@ for(int i = 0; i<n-1; i++){
     }
     return -1;
 }
-void updatelist(int pos,int value){
-  if(pos < 0|| pos >= n )
-  printf("position is invalid !!!!\n");
-  else{
-      list[pos] = value;
-    printf("element updated!!!\n");
-  }
-}
 void displaylist(){
    if (n == 0){
       printf("list is empty !!!\n");
@@ -92,6 +84,14 @@ for(int i = 0; i<n; i++){
    printf("%d\t" , list[i]);
   }
 printf("\n");
+}
+void updatelist(int pos,int value){
+  if(pos < 0|| pos >= n )
+  printf("position is invalid !!!!\n");
+  else{
+      list[pos] = value;
+    printf("element updated!!!\n");
+  }
 }
 int main(){
     while(1){

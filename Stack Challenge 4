@@ -1,0 +1,74 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    int N1, N2;
+    scanf("%d %d", &N1, &N2);
+
+    int Q;
+    scanf("%d", &Q);
+
+    int stack1[1000], stack2[1000];
+    int top1 = -1, top2 = -1;
+
+    while (Q--) {
+        char operation[10];
+        int S;
+
+        scanf("%s %d", operation, &S);
+
+        int *stack;
+        int *top;
+        int capacity;
+
+        if (S == 1) {
+            stack = stack1;
+            top = &top1;
+            capacity = N1;
+        } else {
+            stack = stack2;
+            top = &top2;
+            capacity = N2;
+        }
+
+        if (strcmp(operation, "PUSH") == 0) {
+            int X;
+            scanf("%d", &X);
+
+            if (*top == capacity - 1) {
+                printf("Overflow\n");
+            } else {
+                (*top)++;
+                stack[*top] = X;
+            }
+        }
+        else if (strcmp(operation, "POP") == 0) {
+            if (*top == -1) {
+                printf("Underflow\n");
+            } else {
+                printf("%d\n", stack[*top]);
+                (*top)--;
+            }
+        }
+        else if (strcmp(operation, "PEEK") == 0) {
+            if (*top == -1) {
+                printf("Underflow\n");
+            } else {
+                printf("%d\n", stack[*top]);
+            }
+        }
+        else if (strcmp(operation, "DISPLAY") == 0) {
+            if (*top == -1) {
+                printf("Empty\n");
+            } else {
+                for (int i = *top; i >= 0; i--) {
+                    printf("%d", stack[i]);
+                    if (i != 0) printf(" ");
+                }
+                printf("\n");
+            }
+        }
+    }
+
+    return 0;
+}

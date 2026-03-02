@@ -51,20 +51,20 @@ char* conInfixToPostfix(char* infixExp){
             }
             postfix[x] = '\0'; 
                 return postfix;
-        
+
 } 
 
 char* InfixtoPrefix(char* infixExp){ 
     int len = strlen(infixExp);
 
-    
+
     char rev[len+1];
     for(int i = 0; i < len; i++){
         rev[i] = infixExp[len - i - 1];
     }
     rev[len] = '\0';
 
-    
+
     for(int i = 0; i < len; i++){
         if(rev[i] == '(')
             rev[i] = ')';
@@ -72,7 +72,7 @@ char* InfixtoPrefix(char* infixExp){
             rev[i] = '(';
     }
 
-    
+
     char* postfix = conInfixToPostfix(rev);
 
     int plen = strlen(postfix);
@@ -86,18 +86,42 @@ char* InfixtoPrefix(char* infixExp){
     return prefix;
 }
 
+
+char* convertPostfixToInfix(char* postfixExp){
+    int len=strlen(postfixExp),top=-1;
+    char stack[100][len];
+    for(int i=0;i<len;i++){
+        char ch=postfixExp[i];
+        if(isalnum(ch)){
+            char str[]={ch,'\0'};
+            strcpy(stack[++top],str);
+        }
+        else if(ch=='+'||ch=='-'||ch=='*'||ch=='/'||ch=='^'){
+            char* s1=stack[top--];
+            char* s2=stack[top--];
+            char* s3[top]="";
+            sprintf(s3,"(%s%c%s)",s2,ch,s1);
+            strcpy(stack[++top],s3);
+        }
+    }
+    char *infix=(char*)malloc(strlen(stack[top])+1);
+    strcpy(infix,stack[top--]);
+    return infix;
+}
+
 int main(){  
-    char infix[100];
+    char expr[100];
 
     printf("Enter Infix Expression: ");
-    scanf("%s", infix);
+    gets(expr);
 
-    char* postfix = conInfixToPostfix(infix);
-    char* prefix = InfixtoPrefix(infix);
+    char* postfix = conInfixToPostfix(expr);
+    char* prefix = InfixtoPrefix(expr);
 
     printf("Postfix Expression: %s\n", postfix);
     printf("Prefix Expression: %s\n", prefix);
-
+    gets(expr);
+    printf("Infix Expression: %s\n",PostfixToInfix(exp));
 
     return 0;
 }

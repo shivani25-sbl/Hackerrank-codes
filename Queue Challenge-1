@@ -1,48 +1,56 @@
-#include <stdio.h>
-#include <stdlib.h>
-#define MAX 100
-int queue[MAX];
-int front = -1, rear = -1;
-int isFull(int N) {
-    return rear == N - 1;
-}
-int isEmpty() {
-    return front == -1;
-}
-void enqueue(int data, int N) {
-    if (isFull(N)) {
+#include<stdio.h>
+#define MAX 100000
+
+int queue[MAX],front=-1,rear=-1;
+
+int isFull(){
+    return rear==MAX-1;}
+int isEmpty(){
+    return front==-1 || front>rear;}
+void enqueue(int data){
+    if(isFull()){
         printf("Queue Overflow\n");
-        return;
-    }
-    queue[++rear] = data;
-    if (front == -1){
-        front = 0;
-    }
-}
-void dequeue() {
-    if (isEmpty()) {
+        return;}
+    if(front==-1)
+        front=0;
+    queue[++rear]=data;}
+int dequeue(){
+    if(isEmpty()){
         printf("Queue Underflow\n");
-        return -1;
-    }
-    printf("%d\n", queue[front++]);
-    if (front > rear) {
-        front = rear = -1; 
-    }
-}
-void peek() {
-    if (isEmpty()) {
+        return -1;}
+    int val=queue[front++];
+    if(front>rear)
+        front=rear=-1;
+    return val;}
+int peek(){
+    if(isEmpty()){
         printf("Queue Underflow\n");
-        return -1;
-    }
-    printf("%d\n", queue[front]);
-}
-void display() {
-    if (isEmpty()) {
+        return -1;}
+    return queue[front];}
+void display(){
+    if(isEmpty()){
         printf("Queue is Empty\n");
-        return;
-    }
-    for (int i = front; i <= rear; i++) {
-        printf("%d ", queue[i]);
-    }
-    printf("\n");
-}
+        return;}
+    for(int i=front;i<=rear;i++)
+        printf("%d ",queue[i]);
+    printf("\n");}
+int main(){
+    int N,Q,type,x;
+    scanf("%d",&N);
+    scanf("%d",&Q);
+    for(int i=0;i<Q;i++){
+        scanf("%d",&type);
+        if(type==1){
+            scanf("%d",&x);
+            enqueue(x);}
+        else if(type==2){
+            int val=dequeue();
+            if(val!=-1)
+                printf("%d\n",val);}
+        else if(type==3){
+            int val=peek();
+            if(val!=-1)
+                printf("%d\n",val);}
+        else if(type==4){
+            display();}}
+    return 0;}
